@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/639758365f.js" crossorigin="anonymous"></script>    
+    <style>
+        body{
+            background-image: url('https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg');
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height:100vh;
+            margin:0;
+            padding:0;
+        }
+        header{
+            color:#fff;
+            padding:10px;
+            text-align: end;
+        }
+        .navbar li{
+            display: inline;
+            font-size: larger;
+            color:#000;
+        }
+        #main{
+            margin:10px;
+            margin-top:40px;
+            overflow-x: scroll;
+            height:300px;
+        }
+        #main div h2{
+            margin:10px;
+            padding:10px;
+        }
+        #main div{
+            padding: 15px;
+        }        
+        form{
+            color:#fff;
+        }
+        #enteringAmount form
+        {
+            text-align: center;
+            width:100%;
+            position: fixed;
+            bottom:0px;
+            padding:5px;
+        }
+        #enteringAmount input
+        {
+            outline: none;
+            border:1px solid #fff;
+            border-radius: 10px;
+            padding:10px;
+            margin:5px;
+
+        }
+        .expenseslist
+        {
+            display:flex;
+            justify-content:start;
+            align-items:center;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <ul class="navbar">
+            <li><%=name%></li>
+        </ul>
+    </header>
+    <main id="main">
+        <div>
+            <h2>Name:<%=containerName %></h2>
+            <h2>Amount:<%= totalAmount %></h2>
+            <h2>Remaining:<%=remainingAmount  %></h2>
+            <h2>Expenses:<%= expenses %></h2>
+        </div>
+        <hr><h1>Expenses List</h1><hr>
+        <div class="expenseslist">
+          <div >
+            <% expensesList.forEach((item) => {  %>
+                <h2><%= item.expenseName %>: <%= item.expensesAmount %></h2>
+            <% }); %> 
+          </div>
+        </div>
+    </main>
+    <footer>
+        <div id="enteringAmount">    
+            <form action="/value" name="valueform" method="post">
+                <input type="text" placeholder="Enter Expense Name:" name="expensename"required>
+                <input class="valuegetter"type="number" placeholder="Enter Expense" required name="amount">
+                <br><input class="addBt"type="submit" value="Add"></i></input>
+            </form>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body{
+            background-image: url('https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg');
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height:100vh;
+            margin:0;
+            padding:0;
+        }
+        header{
+            text-align: end;
+            padding-left:10px;
+        }
+        .navbar  li{
+            display: inline;
+            font-size: larger;
+            list-style-type:none;
+            padding: 5px;
+            margin:5px;
+        }
+        main{
+            height:370px;
+            overflow-x: scroll;
+        }
+        #amountContainer
+        {
+            padding:5px;
+            margin:5px;
+            margin-top:20px;
+            display:flex;
+            justify-content: center;
+
+        }
+        .amountDisplayer  input
+        {
+            color:black;
+            font-size:medium;
+            border:none;
+            border-radius: 10px;
+            width:220px;
+            padding:20px;
+            margin:10px;
+        }
+        footer{
+            width:100vw;
+            text-align: center;
+            position:fixed;
+            bottom: 0;
+        }
+        footer form input{ 
+            border:1px solid #fff;
+            outline:0;
+            border-radius: 10px;
+            padding:10px;
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- NAVBAR -->
+        <ul class="navbar">
+            <li><%= name %></li>
+        </ul>
+    </header>
+    <h1><hr></h1>    
+    <main>
+        <!-- PLACE OF AMOUNT CONTAINER -->
+         <div id="amountContainer">
+            <form class="amountDisplayer" method="post" action="/amount">
+                        <% data.forEach((item) => {  %>
+                            <input type="submit" name="containerName" value="<%= item.containerName %>"></input><br>
+                        <% }); %>
+            </form>
+         </div>
+    </main>
+    <footer>
+        <!-- Place to create new Amount management place -->
+         <form method="post" action="/createNewAmountContainer">
+            <input class="textInput" type="text"placeholder="Enter nickname " name="amountContainerName" required>
+            <input class="textInput" type="number"placeholder="Enter Amount " name="amountContainer"required>
+            <br><input value="Add"type="submit">
+         </form>
+    </footer>
+</body>
+    </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://kit.fontawesome.com/639758365f.js" crossorigin="anonymous"></script>    
+    <style>
+         body {
+              background-image: url('https://img.freepik.com/free-vector/halftone-background-with-circles_23-2148907689.jpg');
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height: 100vh; /* Sets the height to 100% of the viewport height */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+        }
+        main{
+            text-align: center;
+            border:0px solid black;
+        }
+        main input{
+            outline:none;
+            margin:10px;
+            padding:15px;
+            border:none;
+            border-radius: 20px;
+        }
+        main button{
+            padding:5px;
+            width:100px;
+            border:none;
+            color:red;
+        }
+        h1{
+            color:#fff;
+        }
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Login<span class="error"><br><%=error%></span></h1>
+        <form action="http://localhost:3000/loginsubmit" method="post"name="loginform" class="loginform">
+        <input type="text" placeholder="Enter Name"class="name" name="username"required>
+        <input type="email" placeholder="Enter email"class="email"name="useremail" required>
+        <input type="password" placeholder="Enter password"class="password"name="userpassword" required>
+        <br>
+        <input type="submit" class="sendBt" value="Enter"> 
+       </form>
+    </main>
+</body>
+<script src="/frontend/login.js"></script>
+</html>
